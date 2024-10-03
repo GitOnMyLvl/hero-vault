@@ -6,6 +6,12 @@
   <title>Document</title>
 </head>
 <body>
-  <h1>Hero</h1>
+  <h1><%= hero.name %></h1>
+  <p>Real Name: <%= hero.real_name %></p>
+  <p>Alignment: <%= hero.alignment %></p>
+  <p>Powers: <%= hero.powers.join(', ') %></p>
+  <p>Weaknesses: <%= hero.weaknesses.join(', ') %></p>
+  <p>Character Traits: <%= hero.character_traits.join(', ') %></p>
+  <p>First Appearance: <%= hero.first_appearance %></p>
 </body>
 </html>

@@ -1,15 +1,19 @@
-exports.getCategories = (req, res) => {
-  //Database query to get Data WIP
-  res.render('categories');
-}
+const asyncHandler = require('express-async-handler')
+const db = require('../db/queries')
 
-exports.getCategoryByName = (req, res) => {
-  //Database query to get category name WIP
-  const categoryName = req.params.categoryName;
-  res.render('category', {categoryName})
-}
+exports.getCategories = asyncHandler(async(req, res) => {
+  const categories = await db.getAllCategories();
+  res.render('categories', {categories});
+});
 
-exports.getHeroByName = (req, res) => {
-  //DB query to get hero WIP
-  res.render('hero');
-}
+exports.getHeroesByCategory = asyncHandler(async(req, res) => {
+  const categoryId = req.params.categoryId;
+  const heroes = await db.getHeroesByCategory(categoryId);
+  res.render('category', {heroes, category_id: categoryId});
+});
+
+exports.getHeroById = asyncHandler(async(req, res) => {
+  const heroId = req.params.heroId;
+  const hero = await db.getHeroById(heroId);
+  res.render('hero', {hero});
+});

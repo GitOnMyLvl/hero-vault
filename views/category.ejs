@@ -6,6 +6,15 @@
   <title>Document</title>
 </head>
 <body>
-  <h1>Category: <%= categoryName %></h1>
+  <h1>Heroes</h1>
+  <ul>
+    <% heroes.forEach(hero => { %>
+      <li>
+        <a href="/categories/<%= category_id %>/<%= hero.hero_id %>">
+          <%= hero.name %>
+        </a>
+      </li>
+    <% }); %>
+  </ul>
 </body>
 </html>
