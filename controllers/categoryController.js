@@ -15,5 +15,5 @@ exports.getHeroesByCategory = asyncHandler(async(req, res) => {
 exports.getHeroById = asyncHandler(async(req, res) => {
   const heroId = req.params.heroId;
   const hero = await db.getHeroById(heroId);
-  res.render('hero', {hero});
+  res.render('hero', {hero: hero, categoryId: hero.category_id});
 });
