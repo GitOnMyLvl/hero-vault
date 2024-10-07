@@ -1,20 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-</head>
+  <%- include('partials/head', { title: 'Hero Vault'}) %>
 <body>
-  <h1>Heroes</h1>
-  <ul>
-    <% heroes.forEach(hero => { %>
-      <li>
-        <a href="/categories/<%= category_id %>/<%= hero.hero_id %>">
-          <%= hero.name %>
-        </a>
-      </li>
-    <% }); %>
-  </ul>
+  <%- include('partials/header') %>
+  <section>
+    <ul>
+      <% heroes.forEach(hero => { %>
+        <li>
+          <a href="/categories/<%= category_id %>/<%= hero.hero_id %>">
+            <%= hero.name %>
+          </a>
+        </li>
+      <% }); %>
+    </ul>
+  </section>
+  <%- include('partials/footer') %>
 </body>
 </html>

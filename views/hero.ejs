@@ -1,11 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-</head>
+  <%- include('partials/head', { title: 'Hero Vault'}) %>
 <body>
+  <%- include('partials/header') %>
+  <section>
   <h1><%= hero.name %></h1>
   <p>Real Name: <%= hero.real_name %></p>
   <p>Alignment: <%= hero.alignment %></p>
@@ -13,5 +11,7 @@
   <p>Weaknesses: <%= hero.weaknesses.join(', ') %></p>
   <p>Character Traits: <%= hero.character_traits.join(', ') %></p>
   <p>First Appearance: <%= hero.first_appearance %></p>
+  </section>
+  <%- include('partials/footer') %>
 </body>
 </html>
