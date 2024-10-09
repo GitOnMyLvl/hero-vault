@@ -4,20 +4,22 @@
 <body>
   <%- include('partials/header') %>
   <main class="main">
-    <section>
-      <ul>
-        <% heroes.forEach(hero => { %>
-          <li>
-            <a href="/categories/<%= category_id %>/<%= hero.hero_id %>">
-              <%= hero.name %>
-            </a>
-          </li>
-        <% }); %>
-      </ul>
-    </section>
-    <div>
-      <a href="/newHero">Add new Hero</a>
-      <a href="/categories">Back</a>
+    <div class="main-container">
+      <section>
+        <ul>
+          <% heroes.forEach(hero => { %>
+            <li>
+              <a href="/categories/<%= category_id %>/<%= hero.hero_id %>">
+                <%= hero.name %>
+              </a>
+            </li>
+          <% }); %>
+        </ul>
+      </section>
+      <div>
+        <a href="/newHero">Add new Hero</a>
+        <a href="/categories">Back</a>
+      </div>
     </div>
   </main>
   

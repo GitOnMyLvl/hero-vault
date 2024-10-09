@@ -4,21 +4,23 @@
 <body>
   <%- include('partials/header') %>
   <main class="main">
-    <section>
-      <ul>
-        <% categories.forEach(category => { %>
-          <li>
-            <a href="/categories/<%= category.category_id %>">
-              <%= category.name %>
-            </a>
-          </li>
-        <% }); %>
-      </ul>
-    
-    </section>
-    <div>
-      <a href="/newCategory">Add new Category</a>
-      <a href="/">Back</a>
+    <div class="main-container">
+      <section>
+        <ul>
+          <% categories.forEach(category => { %>
+            <li>
+              <a href="/categories/<%= category.category_id %>">
+                <%= category.name %>
+              </a>
+            </li>
+          <% }); %>
+        </ul>
+      
+      </section>
+      <div>
+        <a href="/newCategory">Add new Category</a>
+        <a href="/">Back</a>
+      </div>
     </div>
   </main>
 
