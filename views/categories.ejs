@@ -3,22 +3,25 @@
   <%- include('partials/head', { title: 'Hero Vault'}) %>
 <body>
   <%- include('partials/header') %>
-  <section>
-    <ul>
-      <% categories.forEach(category => { %>
-        <li>
-          <a href="/categories/<%= category.category_id %>">
-            <%= category.name %>
-          </a>
-        </li>
-      <% }); %>
-    </ul>
-  </section>
-  <div>
-    <a href="/newCategory">Add new Category</a>
-    <a href="/">Back</a>
-  </div>
-  
+  <main class="main">
+    <section>
+      <ul>
+        <% categories.forEach(category => { %>
+          <li>
+            <a href="/categories/<%= category.category_id %>">
+              <%= category.name %>
+            </a>
+          </li>
+        <% }); %>
+      </ul>
+    
+    </section>
+    <div>
+      <a href="/newCategory">Add new Category</a>
+      <a href="/">Back</a>
+    </div>
+  </main>
+
   <%- include('partials/footer') %>
 </body>
 </html>

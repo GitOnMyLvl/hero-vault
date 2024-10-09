@@ -1,10 +1,69 @@
-body {
-  font-family: Arial, sans-serif;
-  background-color: #f0f0f0;
-  text-align: center;
-  padding: 50px;
+:root{
+  --primary-color: #1e1e1e;
+  --secondary-color: #f5f5f5;
+  --accent-color: #f6851e;
+
 }
 
-h1 {
-  color: #20b12a;
+*, *::before, *::after{
+  box-sizing: border-box;
+}
+
+*{
+  margin: 0;
+}
+
+body {
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+input, button, textarea, select {
+  font: inherit;
+}
+
+.header{
+  width: 100%;
+  background-color: var(--primary-color);
+  color: var(--secondary-color);
+  text-align: center;
+}
+
+.header-div{
+  max-width: 1440px;
+  display: flex;
+  margin: 0 auto;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 2rem;
+}
+
+.header-left{
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  justify-content: center;
+}
+
+.header-heading{
+  font-size: 3rem;
+}
+
+.header-links{
+  display: flex;
+  gap: 1rem;
+  list-style: none;
+}
+
+.header-link{
+  text-decoration: none;
+  font-size: 1.5rem;
+}
+
+.header-link:hover{
+  opacity: 70%;
+}
+
+.header-link:visited{
+  color: var(--secondary-color);
 }

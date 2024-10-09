@@ -4,17 +4,19 @@
 
 <body>
   <%- include('partials/header') %>
-  <section>
-    <h1><%= hero.name %></h1>
-    <p>Real Name: <%= hero.real_name %></p>
-    <p>Alignment: <%= hero.alignment %></p>
-    <p>Powers: <%= hero.powers.join(', ') %></p>
-    <p>Weaknesses: <%= hero.weaknesses.join(', ') %></p>
-    <p>Character Traits: <%= hero.character_traits.join(', ') %></p>
-    <p>First Appearance: <%= hero.first_appearance %></p>
-  </section>
-  <a href="/categories/<%= categoryId %>">Back</a>
-  <%- include('partials/footer') %>
+  <main class="main">
+    <section>
+      <h1><%= hero.name %></h1>
+      <p>Real Name: <%= hero.real_name %></p>
+      <p>Alignment: <%= hero.alignment %></p>
+      <p>Powers: <%= hero.powers.join(', ') %></p>
+      <p>Weaknesses: <%= hero.weaknesses.join(', ') %></p>
+      <p>Character Traits: <%= hero.character_traits.join(', ') %></p>
+      <p>First Appearance: <%= hero.first_appearance %></p>
+    </section>
+    <a href="/categories/<%= categoryId %>">Back</a>
+    <%- include('partials/footer') %>
+  </main>
 </body>
 
 </html>
