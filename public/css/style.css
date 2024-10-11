@@ -22,6 +22,14 @@ input, button, textarea, select {
   font: inherit;
 }
 
+a{
+  text-decoration: none;
+}
+
+a:visited{
+  color: var(--secondary-color);
+}
+
 .header{
   width: 100%;
   background-color: var(--primary-color);
@@ -45,8 +53,13 @@ input, button, textarea, select {
   justify-content: center;
 }
 
+.hero-vault-logo{
+  width: auto;
+  max-height: 3rem;
+}
+
 .header-heading{
-  font-size: 3rem;
+  font-size: 2rem;
 }
 
 .header-links{
@@ -69,6 +82,26 @@ input, button, textarea, select {
   color: var(--secondary-color);
 }
 
+.hero-section {
+  background-image: url('/images/heroBackground.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: baseline;
+  color: white;
+  text-align: center;
+}
+
+.hero-content {
+  margin-top: 10vh;
+  background: rgba(0, 0, 0, 0.5);
+  padding: 20px;
+  border-radius: 10px;
+}
+
 .main{
   background-color: var(--primary-color);
   color: var(--secondary-color);
@@ -83,3 +116,4 @@ input, button, textarea, select {
   flex-direction: column;
   align-items: center;
 }
+
