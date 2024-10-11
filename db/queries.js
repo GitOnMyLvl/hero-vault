@@ -22,3 +22,9 @@ exports.getHeroById = async(hero_id) => {
   );
   return rows[0];
 }
+
+exports.addNewCategory = async(category_name) => {
+  await pool.query(
+    `INSERT INTO categories (name) VALUES ($1)`, [category_name]
+  )
+}

@@ -2,8 +2,9 @@ const { Router } = require('express');
 const categoryController = require('../controllers/categoryController');
 const categoryRouter = Router();
 
-categoryRouter.get('/categories', categoryController.getCategories);
-categoryRouter.get('/categories/:categoryId', categoryController.getHeroesByCategory);
-categoryRouter.get('/categories/:categoryId/:heroId', categoryController.getHeroById);
+categoryRouter.get('/', categoryController.getCategories);
+categoryRouter.get('/:categoryId', categoryController.getHeroesByCategory);
+categoryRouter.get('/:categoryId/:heroId', categoryController.getHeroById);
+categoryRouter.post('/newCategory', categoryController.createNewCategory)
 
 module.exports = categoryRouter;

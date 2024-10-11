@@ -17,3 +17,9 @@ exports.getHeroById = asyncHandler(async(req, res) => {
   const hero = await db.getHeroById(heroId);
   res.render('hero', {hero: hero, categoryId: hero.category_id});
 });
+
+exports.createNewCategory = asyncHandler(async(req, res) => {
+  const { categoryName } = req.body;
+  await db.addNewCategory(categoryName);
+  res.redirect('/categories');
+});

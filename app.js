@@ -10,9 +10,10 @@ app.set('view engine', 'ejs');
 
 app.use(express.static('public'));
 app.use(express.urlencoded({ extended: true}));
+app.use(express.json());
 
 app.use('/', homeRouter)
-app.use('/', categoryRouter);
+app.use('/categories', categoryRouter);
 
 app.listen(port, () => {
   console.log(`Server running on Port: ${port}`)
