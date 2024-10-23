@@ -4,7 +4,10 @@ const categoryRouter = Router();
 
 categoryRouter.get('/', categoryController.getCategories);
 categoryRouter.get('/:categoryId', categoryController.getHeroesByCategory);
+categoryRouter.post('/newCategory', categoryController.createNewCategory);
+categoryRouter.get('/:categoryId/newHero', categoryController.getNewHero);
 categoryRouter.get('/:categoryId/:heroId', categoryController.getHeroById);
-categoryRouter.post('/newCategory', categoryController.createNewCategory)
+
+
 
 module.exports = categoryRouter;

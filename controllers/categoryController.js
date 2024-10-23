@@ -23,3 +23,8 @@ exports.createNewCategory = asyncHandler(async(req, res) => {
   await db.addNewCategory(categoryName);
   res.redirect('/categories');
 });
+
+exports.getNewHero = asyncHandler(async(req, res) => {
+  const categoryId = req.params.categoryId;
+  res.render('newHero', {categoryId})
+});
