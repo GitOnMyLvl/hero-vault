@@ -50,4 +50,17 @@ exports.createNewHero = asyncHandler(async(req, res) => {
   });
 
   res.redirect(`/categories/${categoryId}`)
+});
+
+exports.deleteCategory = asyncHandler(async(req, res) => {
+  const categoryId = req.params.categoryId;
+  await db.deleteCategory(categoryId);
+  res.redirect('/categories');
+});
+
+exports.deleteHero = asyncHandler(async(req, res) => {
+  const heroId = req.params.heroId;
+  const categoryId = req.params.categoryId;
+  await db.deleteHero(heroId);
+  res.redirect(`/categories/${categoryId}`);
 })

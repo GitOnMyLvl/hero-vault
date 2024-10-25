@@ -7,24 +7,47 @@
   <main class="main">
     <div class="main-container">
       <section class="main-section">
-        <h1><%= hero.name %></h1>
-        <% if(hero.real_name) { %>
-          <p>Real Name: <%= hero.real_name %></p>
-        <% } %>
-        <p>Alignment: <%= hero.alignment %></p>
-        <% if(hero.powers && hero.powers.some(power => power.trim() !== (''))) { %>
-          <p>Powers: <%= hero.powers.join(', ') %></p>
-        <% } %>
-        <% if(hero.weaknesses && hero.weaknesses.some(weaknesses => weaknesses.trim() !== (''))) {%>
-          <p>Weaknesses: <%= hero.weaknesses.join(', ') %></p>
-        <% } %>
-        <% if(hero.character_traits && hero.character_traits.some(characterTrait => characterTrait.trim() !== (''))) {%>
-          <p>Character Traits: <%= hero.character_traits.join(', ') %></p>
-        <% } %>
-        <% if(hero.first_appearance) {%>
-          <p>First Appearance: <%= hero.first_appearance %></p>
-        <% } %>
+        <div class="hero-container">
+          <h1><%= hero.name %></h1>
+          <% if(hero.real_name) { %>
+            <div class="hero-info">
+              <h4 class="hero-info-title">Real Name: </h4>
+              <p class="hero-info-value"> <%= hero.real_name %></p>
+            </div>
+          <% } %>
+          <div class="hero-info">
+            <h4 class="hero-info-title">Alignment: </h4>
+            <p class="hero-info-value"><%= hero.alignment %></p>
+          </div>
+          <% if(hero.powers && hero.powers.some(power => power.trim() !== (''))) { %>
+            <div class="hero-info">
+              <h4 class="hero-info-title">Powers: </h4>
+              <p class="hero-info-value"> <%= hero.powers.join(', ') %></p>
+            </div>
+          <% } %>
+          <% if(hero.weaknesses && hero.weaknesses.some(weaknesses => weaknesses.trim() !== (''))) {%>
+            <div class="hero-info">
+              <h4 class="hero-info-title">Weaknesses: </h4>
+              <p class="hero-info-value"><%= hero.weaknesses.join(', ') %></p>
+            </div>
+          <% } %>
+          <% if(hero.character_traits && hero.character_traits.some(characterTrait => characterTrait.trim() !== (''))) {%>
+            <div class="hero-info">
+              <h4 class="hero-info-title">Character traits: </h4>
+              <p class="hero-info-value"><%= hero.character_traits.join(', ') %></p>
+            </div>
+          <% } %>
+          <% if(hero.first_appearance) {%>
+            <div class="hero-info">
+              <h4 class="hero-info-title">First Appearance: </h4>
+              <p class="hero-info-value"><%= hero.first_appearance %></p>
+            </div>
+          <% } %>
+        </div>
       </section>
+      <form action="/categories/<%= categoryId %>/<%= hero.hero_id %>/delete" method="POST">
+        <button type="submit" class="delete-btn">Delete Hero</button>
+      </form>
       <a href="/categories/<%= categoryId %>" class="main-link back-link">Back</a>
     </div>
   </main>

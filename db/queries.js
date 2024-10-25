@@ -70,3 +70,25 @@ exports.addNewHero = async ({ category_id, name, real_name, alignment, powers, w
     throw err;
   }
 }
+
+exports.deleteCategory = async(category_id) => {
+  try {
+    await pool.query(`
+      DELETE FROM categories WHERE category_id = $1
+    `, [category_id])
+  } catch (err) {
+    console.error('Error deleting category:', err);
+    throw err;
+  }
+}
+
+exports.deleteHero = async(hero_id) => {
+  try {
+    await pool.query(`
+      DELETE FROM heroes WHERE hero_id = $1
+      `, [hero_id])
+  } catch (err) {
+    console.error('Error deleting hero:', err);
+    throw err;
+  }
+}
