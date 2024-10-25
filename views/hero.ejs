@@ -6,7 +6,7 @@
   <%- include('partials/header') %>
   <main class="main">
     <div class="main-container">
-      <section>
+      <section class="main-section">
         <h1><%= hero.name %></h1>
         <% if(hero.real_name) { %>
           <p>Real Name: <%= hero.real_name %></p>
@@ -25,7 +25,7 @@
           <p>First Appearance: <%= hero.first_appearance %></p>
         <% } %>
       </section>
-      <a href="/categories/<%= categoryId %>">Back</a>
+      <a href="/categories/<%= categoryId %>" class="main-link back-link">Back</a>
     </div>
   </main>
   

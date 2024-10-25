@@ -2,7 +2,7 @@
   --primary-color: #1e1e1e;
   --secondary-color: #f5f5f5;
   --accent-color: #f6851e;
-
+  --second-accent-color: #A1B3F2;
 }
 
 *, *::before, *::after{
@@ -25,6 +25,7 @@ input, button, textarea, select {
 
 a{
   text-decoration: none;
+  color: var(--secondary-color);
 }
 
 a:visited{
@@ -110,16 +111,21 @@ a:visited{
   background-color: var(--primary-color);
   color: var(--secondary-color);
   width: 100%;
-  height: 100vh;
+  min-height: 100vh;
 }
 
 .main-container{
+  padding: 1rem 0;
   max-width: 1440px;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 1rem;
+}
+
+.main-section{
+  width: 100%;
 }
 
 .menu{
@@ -132,8 +138,10 @@ a:visited{
 
 .main-list{
   list-style: none;
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, 15rem);
+  align-items: center;
+  justify-content: center;
   gap: 1rem;
 }
 
@@ -154,6 +162,43 @@ a:visited{
 
 .back-link:visited{
   color: var(--accent-color);
+}
+
+.category-form{
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+  max-width: 15rem;
+  flex-wrap: nowrap;
+}
+
+.new-btn{
+  color: var(--second-accent-color);
+  background-color: var(--primary-color);
+  border-color: var(--second-accent-color);
+}
+
+.new-btn:visited{
+  color: var(--second-accent-color);
+}
+
+.main-input{
+  width: 100%;
+  border: 2px solid var(--secondary-color);
+  color: var(--secondary-color);
+  background-color: var(--primary-color);
+  border-radius: 20px;
+  min-height: 2.5rem;
+}
+
+.category-btn{
+  min-width: 4rem;
+  border: 2px solid var(--secondary-color);
+  color: var(--secondary-color);
+  background-color: var(--primary-color);
+  border-radius: 20px;
+  min-height: 2.5rem;
+  line-height: 2.5rem;
 }
 
 .heroForm{

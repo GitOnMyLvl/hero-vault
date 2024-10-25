@@ -8,23 +8,23 @@
     <div class="main-container">
       <form action="/categories/<%= categoryId %>/newHero" method="post" class="heroForm">
         <label for="name">Hero Name:</label>
-        <input type="text" name="name" id="name" required>
+        <input type="text" name="name" id="name" class="main-input" required>
         <label for="real_name">Real Name:</label>
-        <input type="text" name="real_name" id="real_name">
+        <input type="text" name="real_name" class="main-input" id="real_name">
         <label for="alignment">Alignment:</label>
-        <select name="alignment" id="alignment">
+        <select name="alignment" id="alignment" class="main-input">
           <option value="good">Good</option>
           <option value="neutral">Neutral</option>
           <option value="evil">Evil</option> 
         </select>
         <label for="powers">Powers (comma separated):</label>
-        <input type="text" name="powers" id="powers">
+        <input type="text" name="powers" id="powers" class="main-input">
         <label for="weaknesses">Weaknesses (comma separated):</label>
-        <input type="text" name="weaknesses" id="weaknesses">
+        <input type="text" name="weaknesses" id="weaknesses" class="main-input">
         <label for="character_traits">Character traits (comma separated):</label>
-        <input type="text" name="character_traits" id="character_traits">
+        <input type="text" name="character_traits" id="character_traits" class="main-input">
         <label for="first_appearance">First Appearance:</label>
-        <input type="text" name="first_appearance" id="first_appearance">
+        <input type="text" name="first_appearance" id="first_appearance" class="main-input">
         <button type="submit">Submit</button>
       </form>
     </div>

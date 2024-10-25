@@ -5,7 +5,7 @@
   <%- include('partials/header') %>
   <main class="main">
     <div class="main-container">
-      <section>
+      <section class="main-section">
         <ul class="main-list">
           <% categories.forEach(category => { %>
             <li>
@@ -19,7 +19,7 @@
       </section>
       <div class="menu">
         <div id="newCategoryDiv">
-          <button id="newCategoryBtn">New Category</button>
+          <button id="newCategoryBtn" class="new-btn main-link">New Category</button>
         </div>
         <a href="/" class="main-link back-link">Back</a>
       </div>
@@ -27,6 +27,6 @@
   </main>
 
   <%- include('partials/footer') %>
-  <script src="/scripts/script.js"></script>
+  <script src="/scripts/newCategory.js"></script>
 </body>
 </html>

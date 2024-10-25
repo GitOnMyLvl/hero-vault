@@ -5,7 +5,7 @@
   <%- include('partials/header') %>
   <main class="main">
     <div class="main-container">
-      <section>
+      <section class="main-section">
         <ul class="main-list">
           <% heroes.forEach(hero => { %>
             <li>
@@ -16,9 +16,9 @@
           <% }); %>
         </ul>
       </section>
-      <div>
-        <a href="/categories/<%= category_id %>/newHero">Add new Hero</a>
-        <a href="/categories">Back</a>
+      <div class="menu">
+        <a href="/categories/<%= category_id %>/newHero" class="main-link new-btn">Add new Hero</a>
+        <a href="/categories" class="main-link back-link">Back</a>
       </div>
     </div>
   </main>
