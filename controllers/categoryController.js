@@ -28,3 +28,26 @@ exports.getNewHero = asyncHandler(async(req, res) => {
   const categoryId = req.params.categoryId;
   res.render('newHero', {categoryId})
 });
+
+exports.createNewHero = asyncHandler(async(req, res) => {
+  const categoryId = req.params.categoryId;
+  const { name, real_name, alignment, powers, weaknesses, character_traits, first_appearance } = req.body;
+  
+  //Create arrays for powers, weaknesses and character_traits
+  const powersArray = powers.split(', ').map(power => power.trim());
+  const weaknessesArray = weaknesses.split(', ').map(weakness => weakness.trim());
+  const characterTraitsArray = character_traits.split(', ').map(characterTrait => characterTrait.trim());
+
+  await db.addNewHero({
+    category_id: categoryId,
+    name,
+    real_name,
+    alignment,
+    powers: powersArray,
+    weaknesses: weaknessesArray,
+    character_traits: characterTraitsArray,
+    first_appearance
+  });
+
+  res.redirect(`/categories/${categoryId}`)
+})
