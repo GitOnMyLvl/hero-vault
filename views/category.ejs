@@ -6,10 +6,10 @@
   <main class="main">
     <div class="main-container">
       <section>
-        <ul>
+        <ul class="main-list">
           <% heroes.forEach(hero => { %>
             <li>
-              <a href="/categories/<%= category_id %>/<%= hero.hero_id %>">
+              <a href="/categories/<%= category_id %>/<%= hero.hero_id %>" class="main-link">
                 <%= hero.name %>
               </a>
             </li>

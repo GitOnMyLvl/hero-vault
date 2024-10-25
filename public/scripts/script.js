@@ -5,7 +5,7 @@ const showForm = () => {
   newCategoryDiv.innerHTML = `
     <form method="post" action="/categories/newCategory">
       <div class="newCategoryForm">
-        <input type="text" id="categoryName" name="categoryName">
+        <input type="text" id="categoryName" name="categoryName" required>
         <button type="submit">Create</button>
       </div>
     </form>

@@ -117,3 +117,24 @@ a:visited{
   align-items: center;
 }
 
+.main-list{
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.main-link{
+  display: block;
+  text-align: center;
+  border: 1px solid white;
+  min-width: 15rem;
+  min-height: 2.5rem;
+  border-radius: 20px;
+  line-height: 2.5rem;
+}
+
+.heroForm{
+  display: flex;
+  flex-direction: column;
+}

@@ -8,12 +8,22 @@
     <div class="main-container">
       <section>
         <h1><%= hero.name %></h1>
-        <p>Real Name: <%= hero.real_name %></p>
+        <% if(hero.real_name) { %>
+          <p>Real Name: <%= hero.real_name %></p>
+        <% } %>
         <p>Alignment: <%= hero.alignment %></p>
-        <p>Powers: <%= hero.powers.join(', ') %></p>
-        <p>Weaknesses: <%= hero.weaknesses.join(', ') %></p>
-        <p>Character Traits: <%= hero.character_traits.join(', ') %></p>
-        <p>First Appearance: <%= hero.first_appearance %></p>
+        <% if(hero.powers && hero.powers.some(power => power.trim() !== (''))) { %>
+          <p>Powers: <%= hero.powers.join(', ') %></p>
+        <% } %>
+        <% if(hero.weaknesses && hero.weaknesses.some(weaknesses => weaknesses.trim() !== (''))) {%>
+          <p>Weaknesses: <%= hero.weaknesses.join(', ') %></p>
+        <% } %>
+        <% if(hero.character_traits && hero.character_traits.some(characterTrait => characterTrait.trim() !== (''))) {%>
+          <p>Character Traits: <%= hero.character_traits.join(', ') %></p>
+        <% } %>
+        <% if(hero.first_appearance) {%>
+          <p>First Appearance: <%= hero.first_appearance %></p>
+        <% } %>
       </section>
       <a href="/categories/<%= categoryId %>">Back</a>
     </div>

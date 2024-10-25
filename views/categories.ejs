@@ -6,10 +6,10 @@
   <main class="main">
     <div class="main-container">
       <section>
-        <ul>
+        <ul class="main-list">
           <% categories.forEach(category => { %>
             <li>
-              <a href="/categories/<%= category.category_id %>">
+              <a href="/categories/<%= category.category_id %>" class="main-link">
                 <%= category.name %>
               </a>
             </li>
