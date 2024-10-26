@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
-  <%- include('partials/head', { title: 'Hero Vault'}) %>
+<%- include('partials/head', { title: 'Hero Vault'}) %>
+
 <body>
   <%- include('partials/header') %>
   <main class="main">
@@ -8,24 +9,33 @@
       <section class="main-section">
         <ul class="main-list">
           <% heroes.forEach(hero => { %>
-            <li>
-              <a href="/categories/<%= category_id %>/<%= hero.hero_id %>" class="main-link">
-                <%= hero.name %>
+          <li class="main-link">
+            <a href="/categories/<%= category_id %>/<%= hero.hero_id %>">
+              <%= hero.name %>
+            </a>
+            <div class="edit-menu">
+              <a href="/categories/<%= category_id %>/<%= hero.hero_id %>/edit" class="icon-btn">
+                <i class="fas fa-edit"></i>
               </a>
-            </li>
+              </a>
+              <form action="/categories/<%= category_id %>/<%= hero.hero_id %>/delete" method="POST">
+                <button type="submit" class="icon-btn">
+                  <i class="fas fa-trash"></i>
+                </button>
+              </form>
+            </div>
+          </li>
           <% }); %>
         </ul>
       </section>
       <div class="menu">
         <a href="/categories/<%= category_id %>/newHero" class="main-link new-btn">Add new Hero</a>
-        <form action="/categories/<%= category_id %>/delete" method="POST">
-          <button type="submit" class="delete-btn">Delete Category</button>
-        </form>
         <a href="/categories" class="main-link back-link">Back</a>
       </div>
     </div>
   </main>
-  
+
   <%- include('partials/footer') %>
 </body>
+
 </html>

@@ -8,10 +8,20 @@
       <section class="main-section">
         <ul class="main-list">
           <% categories.forEach(category => { %>
-            <li>
-              <a href="/categories/<%= category.category_id %>" class="main-link">
+            <li class="main-link">
+              <a href="/categories/<%= category.category_id %>">
                 <%= category.name %>
               </a>
+              <div class="edit-menu">
+                <a href="/categories/<%= category.category_id %>/edit" class="icon-btn">
+                  <i class="fas fa-edit"></i>
+                </a>
+                <form action="/categories/<%= category.category_id %>/delete" method="POST">
+                  <button type="submit" class="icon-btn">
+                    <i class="fas fa-trash"></i>
+                  </button>
+                </form>
+              </div>
             </li>
           <% }); %>
         </ul>

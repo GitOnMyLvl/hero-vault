@@ -129,6 +129,13 @@ a:visited{
   width: 100%;
 }
 
+.edit-menu{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+
 .menu{
   display: flex;
   flex-direction: column;
@@ -147,7 +154,8 @@ a:visited{
 }
 
 .main-link{
-  display: block;
+  display: flex;
+  justify-content: space-evenly;
   text-align: center;
   border: 2px solid var(--secondary-color);
   min-width: 15rem;
@@ -181,6 +189,15 @@ a:visited{
 
 .new-btn:visited{
   color: var(--second-accent-color);
+}
+
+.icon-btn{
+  color: inherit;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  font-size: 1rem;
 }
 
 .main-input{
