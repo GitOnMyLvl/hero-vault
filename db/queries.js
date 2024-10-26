@@ -41,10 +41,23 @@ exports.getHeroById = async (hero_id) => {
 exports.addNewCategory = async (category_name) => {
   try {
     await pool.query(
-      `INSERT INTO categories (name) VALUES ($1)`, [category_name]
+      `INSERT INTO categories (category_name) VALUES ($1)`, [category_name]
     )
   } catch (err) {
     console.error('Error creating new category:', err);
+    throw err;
+  }
+}
+
+exports.updateCategory = async(category_id, category_name) => {
+  try {
+    console.log(category_name, category_id)
+    await pool.query(
+      'UPDATE categories SET category_name = $1 WHERE category_id = $2',
+      [category_name, category_id]
+    )
+  } catch (err) {
+    console.error('Error updating category:', err);
     throw err;
   }
 }

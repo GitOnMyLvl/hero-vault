@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
-  <%- include('partials/head', { title: 'Hero Vault'}) %>
+<%- include('partials/head', { title: 'Hero Vault'}) %>
+
 <body>
   <%- include('partials/header') %>
   <main class="main">
@@ -8,24 +9,24 @@
       <section class="main-section">
         <ul class="main-list">
           <% categories.forEach(category => { %>
-            <li class="main-link">
-              <a href="/categories/<%= category.category_id %>">
-                <%= category.name %>
-              </a>
-              <div class="edit-menu">
-                <a href="/categories/<%= category.category_id %>/edit" class="icon-btn">
-                  <i class="fas fa-edit"></i>
-                </a>
-                <form action="/categories/<%= category.category_id %>/delete" method="POST">
-                  <button type="submit" class="icon-btn">
-                    <i class="fas fa-trash"></i>
-                  </button>
-                </form>
-              </div>
-            </li>
+          <li class="main-link" id="category-<%= category.category_id %>">
+            <a href="/categories/<%= category.category_id %>">
+              <%= category.category_name %>
+            </a>
+            <div class="edit-menu">
+              <button type="button" class="icon-btn" onclick="showEditForm(<%= category.category_id %>, '<%= category.category_name %>')">
+                <i class="fas fa-edit"></i>
+              </button>
+              <form action="/categories/<%= category.category_id %>/delete" method="POST">
+                <button type="submit" class="icon-btn">
+                  <i class="fas fa-trash"></i>
+                </button>
+              </form>
+            </div>
+          </li>
           <% }); %>
         </ul>
-      
+
       </section>
       <div class="menu">
         <div id="newCategoryDiv">
@@ -39,4 +40,5 @@
   <%- include('partials/footer') %>
   <script src="/scripts/newCategory.js"></script>
 </body>
+
 </html>

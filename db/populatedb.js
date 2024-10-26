@@ -8,7 +8,7 @@ const SQL = `
 
   CREATE TABLE IF NOT EXISTS categories (
     category_id INT PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
-    name VARCHAR(255) NOT NULL
+    category_name VARCHAR(255) NOT NULL
   );
 
   CREATE TABLE IF NOT EXISTS heroes (
@@ -27,7 +27,7 @@ const SQL = `
       ON DELETE CASCADE
   );
 
-  INSERT INTO categories (name) 
+  INSERT INTO categories (category_name) 
   VALUES 
   ('Marvel'),
   ('DC');
