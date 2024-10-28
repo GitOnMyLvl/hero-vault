@@ -1,5 +1,6 @@
-const asyncHandler = require('express-async-handler')
-const db = require('../db/queries')
+const asyncHandler = require('express-async-handler');
+const { validationResult } = require('express-validator') ;
+const db = require('../db/queries');
 
 exports.getCategories = asyncHandler(async(req, res) => {
   const categories = await db.getAllCategories();
@@ -49,6 +50,12 @@ exports.getEditHero = asyncHandler(async (req, res) => {
 })
 
 exports.saveHero = asyncHandler(async(req, res) => {
+
+  const errors = validationResult(req);
+  if (!errors.isEmpty()) {
+    return res.status(400).json({ errors: errors.array() });
+  }
+  
   const categoryId = req.params.categoryId;
   const heroId = req.params.heroId || null;
   const { name, real_name, alignment, powers, weaknesses, character_traits, first_appearance } = req.body;
