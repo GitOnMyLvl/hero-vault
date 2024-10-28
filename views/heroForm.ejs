@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('partials/head', { title: hero ? 'Edit Hero' : 'New Hero'}) %>
+
+<body>
+  <%- include('partials/header') %>
+  <main class="main">
+    <div class="main-container">
+      <form action="/categories/<%= categoryId %>/<%= hero ? `${hero.hero_id}/editHero`: 'newHero' %>" method="post" class="hero-form">
+        <div class="input-group">
+          <label for="name">Hero Name:</label>
+          <input type="text" name="name" id="name" class="main-input" value="<%= hero ? hero.name : '' %>"required>
+        </div>
+        <div class="input-group">
+          <label for="real_name">Real Name:</label>
+          <input type="text" name="real_name" class="main-input" id="real_name" value="<%= hero ? hero.real_name : '' %>">
+        </div>
+        <div class="input-group">
+          <label for="alignment">Alignment:</label>
+          <select name="alignment" id="alignment" class="main-input main-select">
+            <option value="good" <%= hero && hero.alignment === 'good' ? 'selected' : '' %>>Good</option>
+            <option value="neutral" <%= hero && hero.alignment === 'neutral' ? 'selected' : '' %>>Neutral</option>
+            <option value="evil" <%= hero && hero.alignment === 'evil' ? 'selected' : '' %>>Evil</option>
+          </select>
+        </div>
+        <div class="input-group">
+          <label for="powers">Powers (comma separated):</label>
+          <input type="text" name="powers" id="powers" class="main-input" value="<%= hero ? hero.powers.join(', ') : '' %>">
+        </div>
+        <div class="input-group">
+          <label for="weaknesses">Weaknesses (comma separated):</label>
+          <input type="text" name="weaknesses" id="weaknesses" class="main-input" value="<%= hero ? hero.weaknesses.join(', ') : '' %>">
+        </div>
+        <div class="input-group">
+          <label for="character_traits">Character traits (comma separated):</label>
+          <input type="text" name="character_traits" id="character_traits" class="main-input" value="<%= hero ? hero.character_traits.join(', ') : '' %>">
+        </div>
+        <div class="input-group">
+          <label for="first_appearance">First Appearance:</label>
+          <input type="text" name="first_appearance" id="first_appearance" class="main-input" value="<%= hero ? hero.first_appearance : '' %>">
+        </div>
+        <div class="new-hero-btns">
+          <button type="submit" class="new-btn main-link"><%= hero ? 'Save' : 'Create' %></button>
+          <a href="/categories" class="main-link back-link">Cancel</a>
+        </div>
+      </form>
+    </div>
+  </main>
+  
+  <%- include('partials/footer') %>
+  
+</body>
+
+</html>

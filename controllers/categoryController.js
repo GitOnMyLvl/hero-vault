@@ -6,6 +6,25 @@ exports.getCategories = asyncHandler(async(req, res) => {
   res.render('categories', {categories});
 });
 
+exports.createNewCategory = asyncHandler(async(req, res) => {
+  const { categoryName } = req.body;
+  await db.addNewCategory(categoryName);
+  res.redirect('/categories');
+});
+
+exports.editCategory = asyncHandler(async(req, res) => {
+  const categoryId = req.params.categoryId;
+  const { categoryName } = req.body;
+  await db.updateCategory( categoryId, categoryName );
+  res.redirect('/categories')
+});
+
+exports.deleteCategory = asyncHandler(async(req, res) => {
+  const categoryId = req.params.categoryId;
+  await db.deleteCategory(categoryId);
+  res.redirect('/categories');
+});
+
 exports.getHeroesByCategory = asyncHandler(async(req, res) => {
   const categoryId = req.params.categoryId;
   const heroes = await db.getHeroesByCategory(categoryId);
@@ -18,28 +37,20 @@ exports.getHeroById = asyncHandler(async(req, res) => {
   res.render('hero', {hero: hero, categoryId: hero.category_id});
 });
 
-exports.createNewCategory = asyncHandler(async(req, res) => {
-  const { categoryName } = req.body;
-  await db.addNewCategory(categoryName);
-  res.redirect('/categories');
-});
-
-exports.editCategory = asyncHandler(async(req, res) => {
-  const categoryId = req.params.categoryId;
-  const { categoryName } = req.body;
-  console.log(categoryName);
-  console.log(categoryId)
-  await db.updateCategory( categoryId, categoryName );
-  res.redirect('/categories')
-})
-
 exports.getNewHero = asyncHandler(async(req, res) => {
   const categoryId = req.params.categoryId;
-  res.render('newHero', {categoryId})
+  res.render('heroForm', {categoryId, hero: null})
 });
 
-exports.createNewHero = asyncHandler(async(req, res) => {
+exports.getEditHero = asyncHandler(async (req, res) => {
+  const { categoryId, heroId} = req.params;
+  const hero = await db.getHeroById(heroId);
+  res.render('heroForm', {categoryId, hero});
+})
+
+exports.saveHero = asyncHandler(async(req, res) => {
   const categoryId = req.params.categoryId;
+  const heroId = req.params.heroId || null;
   const { name, real_name, alignment, powers, weaknesses, character_traits, first_appearance } = req.body;
   
   //Create arrays for powers, weaknesses and character_traits
@@ -47,7 +58,7 @@ exports.createNewHero = asyncHandler(async(req, res) => {
   const weaknessesArray = weaknesses.split(', ').map(weakness => weakness.trim());
   const characterTraitsArray = character_traits.split(', ').map(characterTrait => characterTrait.trim());
 
-  await db.addNewHero({
+  const heroData = {
     category_id: categoryId,
     name,
     real_name,
@@ -56,15 +67,15 @@ exports.createNewHero = asyncHandler(async(req, res) => {
     weaknesses: weaknessesArray,
     character_traits: characterTraitsArray,
     first_appearance
-  });
+  };
+
+  if(heroId) {
+    await db.updateHero(heroId, heroData);
+  }else{
+    await db.addNewHero(heroData);
+  }
 
   res.redirect(`/categories/${categoryId}`)
-});
-
-exports.deleteCategory = asyncHandler(async(req, res) => {
-  const categoryId = req.params.categoryId;
-  await db.deleteCategory(categoryId);
-  res.redirect('/categories');
 });
 
 exports.deleteHero = asyncHandler(async(req, res) => {

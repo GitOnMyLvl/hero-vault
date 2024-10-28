@@ -12,6 +12,40 @@ exports.getAllCategories = async () => {
   }
 };
 
+exports.addNewCategory = async (category_name) => {
+  try {
+    await pool.query(
+      `INSERT INTO categories (category_name) VALUES ($1)`, [category_name]
+    )
+  } catch (err) {
+    console.error('Error creating new category:', err);
+    throw err;
+  }
+}
+
+exports.updateCategory = async(category_id, category_name) => {
+  try {
+    await pool.query(
+      'UPDATE categories SET category_name = $1 WHERE category_id = $2',
+      [category_name, category_id]
+    )
+  } catch (err) {
+    console.error('Error updating category:', err);
+    throw err;
+  }
+}
+
+exports.deleteCategory = async(category_id) => {
+  try {
+    await pool.query(`
+      DELETE FROM categories WHERE category_id = $1
+    `, [category_id])
+  } catch (err) {
+    console.error('Error deleting category:', err);
+    throw err;
+  }
+}
+
 exports.getHeroesByCategory = async (category_id) => {
   try {
     const { rows } = await pool.query(
@@ -38,29 +72,7 @@ exports.getHeroById = async (hero_id) => {
   }
 }
 
-exports.addNewCategory = async (category_name) => {
-  try {
-    await pool.query(
-      `INSERT INTO categories (category_name) VALUES ($1)`, [category_name]
-    )
-  } catch (err) {
-    console.error('Error creating new category:', err);
-    throw err;
-  }
-}
 
-exports.updateCategory = async(category_id, category_name) => {
-  try {
-    console.log(category_name, category_id)
-    await pool.query(
-      'UPDATE categories SET category_name = $1 WHERE category_id = $2',
-      [category_name, category_id]
-    )
-  } catch (err) {
-    console.error('Error updating category:', err);
-    throw err;
-  }
-}
 
 exports.addNewHero = async ({ category_id, name, real_name, alignment, powers, weaknesses, character_traits, first_appearance }) => {
   try {
@@ -84,16 +96,27 @@ exports.addNewHero = async ({ category_id, name, real_name, alignment, powers, w
   }
 }
 
-exports.deleteCategory = async(category_id) => {
+exports.updateHero = async (hero_id, heroData) => {
   try {
-    await pool.query(`
-      DELETE FROM categories WHERE category_id = $1
-    `, [category_id])
+    await pool.query(
+      `UPDATE heroes 
+      SET name = $1,
+        real_name = $2,
+        alignment = $3,
+        powers = $4,
+        weaknesses = $5,
+        character_traits = $6,
+        first_appearance = $7
+      WHERE hero_id = $8`,
+      [heroData.name, heroData.real_name, heroData.alignment, heroData.powers, heroData.weaknesses, heroData.character_traits, heroData.first_appearance, hero_id]
+    )
   } catch (err) {
-    console.error('Error deleting category:', err);
+    console.error('Error updating hero:', err);
     throw err;
   }
+  
 }
+
 
 exports.deleteHero = async(hero_id) => {
   try {
