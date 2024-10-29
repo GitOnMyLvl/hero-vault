@@ -9,7 +9,7 @@
       <section class="main-section">
         <ul class="main-list">
           <% categories.forEach(category => { %>
-          <li class="main-link" id="category-<%= category.category_id %>">
+          <li class="main-btn" id="category-<%= category.category_id %>">
             <a href="/categories/<%= category.category_id %>">
               <%= category.category_name %>
             </a>
@@ -30,9 +30,9 @@
       </section>
       <div class="menu">
         <div id="newCategoryDiv">
-          <button id="newCategoryBtn" class="new-btn main-link">New Category</button>
+          <button id="newCategoryBtn" class="new-btn main-btn">New Category</button>
         </div>
-        <a href="/" class="main-link back-link">Back</a>
+        <a href="/" class="main-btn back-btn">Back</a>
       </div>
     </div>
   </main>

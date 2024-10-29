@@ -153,24 +153,40 @@ a:visited{
   gap: 1rem;
 }
 
-.main-link{
+.main-btn{
   display: flex;
   justify-content: space-evenly;
   text-align: center;
+  align-items: center;
   border: 2px solid var(--secondary-color);
   min-width: 15rem;
   min-height: 2.5rem;
   border-radius: 20px;
   line-height: 2.5rem;
+  overflow: hidden;
 }
 
-.back-link{
+.main-btn a{
+  display: inline-block;
+  white-space: nowrap;
+  overflow:hidden;
+  text-overflow: ellipsis;
+  max-width: 11rem;
+}
+
+.back-btn{
   border-color: var(--accent-color);
   color: var(--accent-color);
 }
 
-.back-link:visited{
+.back-btn:visited{
   color: var(--accent-color);
+}
+
+.login-btn{
+  color: var(--secondary-color);
+  background-color: var(--primary-color);
+  border-color: var(--secondary-color);
 }
 
 .category-form{
@@ -213,6 +229,16 @@ a:visited{
 .main-input:focus{
   outline: none;
   border-color: var(--focus-color);
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  background-color: var(--primary-color) !important;
+  color: var(--secondary-color) !important;
+  -webkit-text-fill-color: var(--secondary-color) !important; 
+  box-shadow: 0 0 0px 1000px var(--primary-color) inset !important;
 }
 
 .category-btn{
@@ -260,6 +286,21 @@ a:visited{
   
 }
 
+.login-container{
+  display: flex;
+  flex-direction: column;
+  max-width: 1440px;
+  margin: 0 auto;
+  align-items: center;
+  gap: 1rem;
+}
+
+.login-form{
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
 @media only screen and (min-width: 576px) {
   .hero-info{
     flex-direction: row;
@@ -269,3 +310,4 @@ a:visited{
     gap:1rem
   }
 }
+

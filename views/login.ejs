@@ -4,13 +4,23 @@
 <body>
   <%- include('partials/header') %>
   <main class="main">
-    <section class="login-section">
-      <h1>Admin Login</h1>
-      <form action="/auth/login" method="post">
-        <label for="password">Password:</label>
-        <input type="password" id="password" name="password" required>
-        <button type="submit">Login</button>
-      </form>
+    <section class="main-section">
+      <div class="login-container">
+        <% if (isAuthenticated) { %>
+          <h1>Already logged in!</h1>
+          <a href="/categories" class="main-btn back-btn">Back to Categories</a>
+        <% }else{ %>  
+        <h1 class="login-header">Admin Login</h1>
+        <form action="/auth/login" method="post" class="login-form">
+          <div class="password-container">
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" class="main-input" required>  
+          </div>
+          <button type="submit" class="main-btn login-btn">Login</button>
+          <a href="/" class="main-btn back-btn">Back</a>
+        </form>
+      <% } %>
+      </div>
     </section>
   </main>
   <%- include('partials/footer') %>

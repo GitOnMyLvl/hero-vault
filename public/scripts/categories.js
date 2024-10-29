@@ -15,7 +15,7 @@ const showNewForm = () => {
 const showEditForm = (categoryId, name) => {
   const listItem = document.getElementById(`category-${categoryId}`);
   
-  listItem.classList.remove('main-link')
+  listItem.classList.remove('main-btn')
 
   listItem.innerHTML = `
     <form method="post" action="/categories/${categoryId}/editCategory">

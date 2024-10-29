@@ -22,6 +22,10 @@ app.use(session({
   cookie: { maxAge: 60000 * 30}
 }));
 
+app.use((req, res, next) => {
+  res.locals.isAuthenticated = req.session.isAuthenticated || false;
+  next();
+});
 app.use('/', homeRouter);
 app.use('/auth', authRouter);
 app.use('/categories', categoryRouter);
