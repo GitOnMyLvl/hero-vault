@@ -94,21 +94,25 @@ a:visited{
   position: absolute;
   top: 100%;
   right: 0;
-  width: 15.6rem;
+  width: 0;
   height: 100vh;
   background-color: var(--primary-color);
   color: var(--secondary-color);
-  transform: translateX(100%);
-  transition: right 0.3 ease;
-  display: flex;
+  transition: width 0.3s ease;
+  overflow: hidden;
   flex-direction: column;
-  padding: 1.5rem 2rem;
-  gap: 2rem;
   z-index: 1000;
 }
 
 .sidebar.open {
-  transform: translateY(0);
+  width: 15.6rem;
+}
+
+.sidebar-container{
+  padding: 1.5rem 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
 }
 
 .sidebar-links{
@@ -353,6 +357,10 @@ input:-webkit-autofill:active {
   }
 
   .menu-btn{
+    display: none;
+  }
+
+  .sidebar{
     display: none;
   }
 
