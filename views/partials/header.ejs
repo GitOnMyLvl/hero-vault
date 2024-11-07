@@ -1,48 +1,46 @@
-<header class="header">
-  <div class="header-div">
-    <div class="header-left">
-      <img src="/images/heroVaultLogo.png" alt="Logo" class="hero-vault-logo">
-      <h1 class="header-heading">Hero Vault</h1>
-    </div>
-    <div class="header-right"> 
-      <!-- for mobile-->
-        <button class="menu-btn fa-btn">
+<div class="header-sidebar-container">
+  <header class="header">
+    <div class="header-div">
+      <div class="header-left">
+        <img src="/images/heroVaultLogo.png" alt="Logo" class="hero-vault-logo">
+        <h1 class="header-heading">Hero Vault</h1>
+      </div>
+      <div class="header-right">
+        <!-- for mobile-->
+        <button class="menu-btn" onclick="toggleSidebar()">
           <i class="fas fa-bars"></i>
-        </button>  
+        </button>
         <!-- for larger screen-->
-      <ul class="header-links">
-        <li class="header-element">
-          <a href="/" class="header-link">Home</a>
-        </li>
-        <li class="header-element">
-          <a href="/categories" class="header-link">Categories</a>
-        </li> 
-        <li class="header-element"> 
-          <a href="/auth/login" class="header-link">Login</a>
-        </li>
-      </ul>
+        <ul class="header-links">
+          <li class="header-element">
+            <a href="/" class="header-link">Home</a>
+          </li>
+          <li class="header-element">
+            <a href="/categories" class="header-link">Categories</a>
+          </li>
+          <li class="header-element">
+            <a href="/auth/login" class="header-link">Login</a>
+          </li>
+        </ul>
+      </div>
     </div>
-  </div>
-</header>
-
-<!-- sidebar for mobile-->
- <aside class="sidebar" id="sidebar">
-  <div class="sidebar-heading-container">
-    <h1>Menu</h1>
-    <button class="menu-close-btn fa-btn">
-      <i class="fas fa-close"></i>
-    </button>
-  </div>
+  </header>
   
-  <ul class="sidebar-links">
-    <li>
-      <a href="/" class="sidebar-link">Home</a>
-    </li>
-    <li>
-      <a href="/categories" class="sidebar-link">Categories</a>
-    </li> 
-    <li> 
-      <a href="/auth/login" class="sidebar-link">Login</a>
-    </li>
-  </ul>
- </aside>
+  <!-- sidebar for mobile-->
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-heading-container">
+      <h1>Menu</h1>
+    </div>
+    <ul class="sidebar-links">
+      <li>
+        <a href="/" class="sidebar-link">Home</a>
+      </li>
+      <li>
+        <a href="/categories" class="sidebar-link">Categories</a>
+      </li>
+      <li>
+        <a href="/auth/login" class="sidebar-link">Login</a>
+      </li>
+    </ul>
+  </aside>
+</div>
