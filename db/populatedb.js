@@ -46,7 +46,7 @@ const SQL = `
 async function main() {
   console.log("seeding...");
   const client = new Client({
-    connectionString: process.env.DB_CONNECTION_STRING,
+    connectionString: process.env.ONLINE_DB_CONNECTION_STRING,
   });
   try {
     await client.connect();
