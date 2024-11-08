@@ -148,9 +148,10 @@ a:visited{
   display: flex;
   flex-direction: column;
   gap: 1rem;
+  margin: 0 1rem;
+  padding: 1rem;
   margin-top: 10vh;
   background: rgba(0, 0, 0, 0.5);
-  padding: 1.25rem;
   border-radius: 10px;
 }
 
@@ -316,7 +317,6 @@ input:-webkit-autofill:active {
   flex-direction: column;
   gap: 2rem;
   align-items: center;
-  padding-bottom: 1rem;
 }
 
 .hero-info{
@@ -328,8 +328,8 @@ input:-webkit-autofill:active {
   text-align: center;
 }
 
-.hero-info-value{
-  
+.hero-info-value::first-letter{
+  text-transform: uppercase;
 }
 
 .login-container{
@@ -345,6 +345,27 @@ input:-webkit-autofill:active {
   display: flex;
   flex-direction: column;
   gap: 1rem;
+}
+
+footer{
+  background-color: var(--primary-color);
+  color: var(--secondary-color);
+}
+
+.footer-container{
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin: 0 auto;
+  padding: 1rem;
+  align-items: center;
+  justify-content: center;
+}
+
+.logo-links{
+  display: flex;
+  gap: 1rem;
+  font-size: 1.5rem;
 }
 
 @media only screen and (min-width: 576px) {
