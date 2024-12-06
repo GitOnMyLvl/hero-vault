@@ -15,6 +15,10 @@
   margin: 0;
 }
 
+html{
+  font-size: calc(16px + 0.5vw);
+}
+
 body, html {
   height: 100%;
 }
@@ -156,7 +160,7 @@ a:visited{
   padding: 1rem;
   margin-top: 10vh;
   background: rgba(0, 0, 0, 0.5);
-  border-radius: 10px;
+  border-radius: 0.8rem;
 }
 
 .main{
@@ -214,7 +218,7 @@ a:visited{
   border: 2px solid var(--secondary-color);
   min-width: 15rem;
   min-height: 2.5rem;
-  border-radius: 20px;
+  border-radius: 1.3rem;
   line-height: 2.5rem;
   overflow: hidden;
 }
@@ -274,7 +278,7 @@ a:visited{
   border: 2px solid var(--secondary-color);
   color: var(--secondary-color);
   background-color: var(--primary-color);
-  border-radius: 20px;
+  border-radius: 1.3rem;
   min-height: 2.5rem;
   padding: 0 0.5rem;
 }
@@ -299,7 +303,7 @@ input:-webkit-autofill:active {
   border: 2px solid var(--secondary-color);
   color: var(--secondary-color);
   background-color: var(--primary-color);
-  border-radius: 20px;
+  border-radius: 1.3rem;
   min-height: 2.5rem;
   line-height: 2.5rem;
 }
